@@ -1,0 +1,30 @@
+.root {
+  padding: 20px;
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-columns: 1fr;
+}
+
+.filtersContainer {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 24px;
+}
+
+.itemsContainer {
+  display: grid;
+  grid-gap: 8px;
+}
+
+.productContainer {
+  padding: 8px;
+  border-bottom: 1px solid #989898;
+
+  & > span:not(:first-child) {
+    margin-left: 8px;
+  }
+}
+
+.productName {
+  font-weight: bold;
+}
