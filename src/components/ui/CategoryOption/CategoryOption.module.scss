@@ -1,0 +1,39 @@
+.root {
+  border: 1px solid #037bff;
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  transition: background-color .15s ease-out;
+
+  &_default {
+    color: #037bff;
+    background-color: #fff;
+  }
+
+  &_selected {
+    color: #fff;
+    background-color: #037bff;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #b9dbff;
+  }
+
+  &:focus {
+    outline: none; // TODO
+    background-color: #b9dbff;
+  }
+
+  &:disabled {
+    color: #037bff;
+    background-color: #fff;
+    opacity: 0.5;
+  }
+
+  &:disabled:hover {
+    cursor: not-allowed;
+  }
+}
