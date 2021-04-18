@@ -17,7 +17,7 @@
   line-height: 22px;
   color: rgba(0, 0, 0, .96);
   caret-color: #037bff;
-  transition: border-color .15s ease-out;
+  transition: border-color .15s ease-out, background-color .15s ease-out;
 
   &::placeholder {
     color: #a8b8ca;
@@ -30,5 +30,9 @@
   &:focus {
     outline: none;
     border-color: #037bff;
+  }
+
+  @media screen and (max-width: 414px) {
+    font-size: 16px; // prevents iOS from zooming when in focus
   }
 }
