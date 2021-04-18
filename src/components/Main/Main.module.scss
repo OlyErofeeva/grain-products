@@ -1,0 +1,18 @@
+.root {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+
+  @media screen and (max-width: 800px) {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 414px) {
+    padding: 16px;
+    gap: 16px;
+  }
+}
