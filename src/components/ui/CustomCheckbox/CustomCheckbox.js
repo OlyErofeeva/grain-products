@@ -5,16 +5,11 @@ import * as uuid from 'uuid'
 // TODO: disabled state styles
 // TODO: click handler
 
-const CustomCheckbox = ({ labelText = '', classNameExt = '' }) => {
+const CustomCheckbox = ({ labelText = '', classNameExt = '', isChecked, onChange }) => {
   const [checkboxId] = useState(uuid.v4())
-  const [isChecked, setIsChecked] = useState(false)
-
-  const clickHandler = () => {
-    setIsChecked(!isChecked)
-  }
 
   return (
-    <label className={`${styles.label} ${classNameExt}`} htmlFor={checkboxId} onClick={clickHandler}>
+    <label className={`${styles.label} ${classNameExt}`} htmlFor={checkboxId} onClick={onChange}>
       <input className={styles.checkboxHidden} type="checkbox" />
 
       <svg className={styles.checkboxVisible} id={checkboxId} width="20" height="20" viewBox="0 0 20 20" fill="none">
