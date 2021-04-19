@@ -1,3 +1,5 @@
+@import '../../assets/main';
+
 .root {
   list-style: none;
   margin: 0;
@@ -7,15 +9,15 @@
   grid-auto-rows: 1fr;
   gap: 24px;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: $laptop) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: $tablet-s) {
     grid-template-columns: 1fr;
   }
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     gap: 16px;
   }
 }

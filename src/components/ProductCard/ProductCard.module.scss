@@ -26,7 +26,7 @@
   background-color: $surface-blank;
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.04);
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     flex-direction: row-reverse;
     height: 172px;
   }
@@ -39,7 +39,7 @@
   width: 116px;
   object-fit: cover;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     width: 96px;
     object-fit: contain;
     align-self: flex-end;
@@ -68,7 +68,7 @@
   line-height: 24px;
   text-transform: uppercase;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     margin-bottom: 0;
   }
 }
@@ -82,7 +82,7 @@
   max-height: 40px; // 2 lines of text
   overflow: hidden;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     max-height: 60px; // 3 lines of text
   }
 }
@@ -91,7 +91,7 @@
   display: flex;
   align-items: center;
   
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     flex-direction: column;
     flex-grow: 1;
     justify-content: flex-end;
@@ -113,7 +113,7 @@
   line-height: 16px;
   color: $accent-notify;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: $mobile) {
     margin-left: 0;
   }
 }
