@@ -1,10 +1,35 @@
-import ProductList from './components/ProductList/ProductList'
+import { useState } from 'react'
+import { useProductList } from './components/ProductList/useProductList'
+
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+
+// TODO: req statuses, api addresses -> constants
 
 function App() {
+  const { items, categoriesPresent, status, filter, updateFilter } = useProductList()
+  const [isFiltersPanelOpen, setIsFiltersPanelOpen] = useState(false)
+  const handleFilterButtonClick = () => {
+    setIsFiltersPanelOpen(!isFiltersPanelOpen)
+  }
+
   return (
-    <div>
-      <ProductList />
-    </div>
+    <>
+      <Header
+        onFilterButtonClick={handleFilterButtonClick}
+        filter={filter}
+        updateFilter={updateFilter}
+        productsReqStatus={status}
+      />
+      <Main
+        isFiltersPanelOpen={isFiltersPanelOpen}
+        products={items}
+        filter={filter}
+        updateFilter={updateFilter}
+        productsReqStatus={status}
+        categoriesPresent={categoriesPresent}
+      />
+    </>
   )
 }
 
