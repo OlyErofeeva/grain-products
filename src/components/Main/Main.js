@@ -1,16 +1,48 @@
 import styles from './Main.module.scss'
 import { useMediaQuery } from 'react-responsive'
 
+import Preloader from '../ui/Preloader/Preloader'
+import SearchResultMessage from '../ui/SearchResultMessage/SearchResultMessage'
 import ProductFilters from '../ProductFilters/ProductFilters'
 import ProductList from '../ProductList/ProductList'
 
-const Main = ({ isFiltersPanelOpen, products, filter, updateFilter }) => {
+const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqStatus }) => {
   const isMobile = useMediaQuery({ query: 'screen and (max-width: 414px)' })
+
+  const renderProductSearchResult = () => {
+    switch (true) {
+      case productsReqStatus === 'work': {
+        return <Preloader />
+      }
+      case productsReqStatus === 'error': {
+        return (
+          <SearchResultMessage
+            title="Internal Server Error"
+            description="Sorry, there were some technical issues while processing your request. Please try again"
+          />
+        )
+      }
+      case productsReqStatus === 'success' && products.length === 0: {
+        return (
+          <SearchResultMessage
+            title="Nothing matched your search"
+            description="Please try some different filters or keywords"
+          />
+        )
+      }
+      case productsReqStatus === 'success' && products.length > 0: {
+        return <ProductList products={products} />
+      }
+      default: {
+        return null
+      }
+    }
+  }
 
   return (
     <main className={styles.root}>
       {(!isMobile || isFiltersPanelOpen) && <ProductFilters filter={filter} updateFilter={updateFilter} />}
-      <ProductList products={products} />
+      {renderProductSearchResult()}
     </main>
   )
 }
