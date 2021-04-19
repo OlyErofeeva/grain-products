@@ -13,13 +13,14 @@
   background-repeat: no-repeat;
   background-position: 10px 8px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px; // prevents iOS from zooming when in focus
   line-height: 22px;
   color: rgba(0, 0, 0, .96);
   caret-color: #037bff;
   transition: border-color .15s ease-out, background-color .15s ease-out;
 
   &::placeholder {
+    font-size: 14px;
     color: #a8b8ca;
   }
 
@@ -30,9 +31,5 @@
   &:focus {
     outline: none;
     border-color: #037bff;
-  }
-
-  @media screen and (max-width: 414px) {
-    font-size: 16px; // prevents iOS from zooming when in focus
   }
 }
