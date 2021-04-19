@@ -2,9 +2,6 @@ import styles from './CustomCheckbox.module.scss'
 import { useState } from 'react'
 import * as uuid from 'uuid'
 
-// TODO: disabled state styles
-// TODO: click handler
-
 const CustomCheckbox = ({ labelText = '', classNameExt = '', isChecked, onChange }) => {
   const [checkboxId] = useState(uuid.v4())
 
