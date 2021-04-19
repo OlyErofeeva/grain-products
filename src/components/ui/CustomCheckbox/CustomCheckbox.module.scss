@@ -11,7 +11,8 @@
   }
 
   &:hover > .checkboxVisible > .box {
-    fill: #b9dbff;
+    fill: #E2F1FF;
+    stroke: #037bff;
   }
 }
 
@@ -27,7 +28,7 @@
   clip: rect(0 0 0 0);
 
   &:focus + .checkboxVisible {
-    box-shadow: 0 0 0 2px #037bff;
+    box-shadow: 0 0 0 2px #B9DBFF;
     border-radius: 2px;
   }
 }
@@ -39,6 +40,7 @@
 
 .box {
   fill: #fff;
+  stroke: #ddd;
   transition: fill, .15s ease-out;
 }
 

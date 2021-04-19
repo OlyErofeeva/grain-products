@@ -7,24 +7,13 @@
   line-height: 18px;
   transition: background-color .15s ease-out;
 
-  &_default {
-    color: #037bff;
-    background-color: #fff;
-  }
-
-  &_selected {
-    color: #fff;
-    background-color: #037bff;
-  }
-
   &:hover {
     cursor: pointer;
-    background-color: #b9dbff;
   }
 
   &:focus {
     outline: none;
-    background-color: #b9dbff;
+    box-shadow: 0 0 0 2px #B9DBFF;
   }
 
   &:disabled {
@@ -35,5 +24,23 @@
 
   &:disabled:hover {
     cursor: not-allowed;
+  }
+
+  &_default {
+    color: #037bff;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #E2F1FF;
+    }
+  }
+
+  &_selected {
+    color: #fff;
+    background-color: #037bff;
+
+    &:hover {
+      background-color: #008BFF;
+    }
   }
 }

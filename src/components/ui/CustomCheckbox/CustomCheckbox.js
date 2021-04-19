@@ -13,7 +13,7 @@ const CustomCheckbox = ({ labelText = '', classNameExt = '', isChecked, onChange
       <input className={styles.checkboxHidden} type="checkbox" />
 
       <svg className={styles.checkboxVisible} id={checkboxId} width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect className={styles.box} x="0.5" y="0.5" width="19" height="19" rx="3.5" stroke="#ddd" />
+        <rect className={styles.box} x="0.5" y="0.5" width="19" height="19" rx="3.5" />
 
         {isChecked && (
           <path
