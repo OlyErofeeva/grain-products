@@ -1,13 +1,15 @@
 import styles from './Main.module.scss'
 import { useMediaQuery } from 'react-responsive'
+import { useCategoryList } from '../ProductFilters/useCategoryList'
 
 import Preloader from '../ui/Preloader/Preloader'
 import SearchResultMessage from '../ui/SearchResultMessage/SearchResultMessage'
 import ProductFilters from '../ProductFilters/ProductFilters'
 import ProductList from '../ProductList/ProductList'
 
-const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqStatus }) => {
+const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqStatus, categoriesPresent }) => {
   const isMobile = useMediaQuery({ query: 'screen and (max-width: 414px)' })
+  const { items: categoriesAll, status: categoryReqStatus } = useCategoryList()
 
   const renderProductSearchResult = () => {
     switch (true) {
@@ -41,7 +43,15 @@ const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqS
 
   return (
     <main className={styles.root}>
-      {(!isMobile || isFiltersPanelOpen) && <ProductFilters filter={filter} updateFilter={updateFilter} />}
+      {(!isMobile || isFiltersPanelOpen) && (
+        <ProductFilters
+          filter={filter}
+          updateFilter={updateFilter}
+          categoriesPresent={categoriesPresent}
+          categoriesAll={categoriesAll}
+          categoryReqStatus={categoryReqStatus}
+        />
+      )}
       {renderProductSearchResult()}
     </main>
   )

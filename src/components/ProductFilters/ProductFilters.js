@@ -4,11 +4,7 @@ import FiltersIcon from '../svg/FilterIcon/FilterIcon'
 import CategoryOption from '../ui/CategoryOption/CategoryOption'
 import CustomCheckbox from '../ui/CustomCheckbox/CustomCheckbox'
 
-import { useCategoryList } from './useCategoryList'
-
-const ProductFilters = ({ filter, updateFilter }) => {
-  const { items: categories, status: categoryReqStatus } = useCategoryList()
-
+const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll, categoryReqStatus }) => {
   const handleFilterIsLimitedUpdate = () => updateFilter({ isLimited: !filter.isLimited })
   const handleFilterIsNewUpdate = () => updateFilter({ isNew: !filter.isNew })
 
@@ -49,13 +45,14 @@ const ProductFilters = ({ filter, updateFilter }) => {
                 />
               </li>
 
-              {categories.map(item => (
+              {categoriesAll.map(item => (
                 <li className={styles.categoryItem} key={item.id}>
                   <CategoryOption
                     caption={item.name}
                     isSelected={filter.category.includes(item.id)}
                     onClick={() => handleFiltersCategoryUpdate(item.id)}
                     categoryId={item.id}
+                    isDisabled={categoriesPresent.size > 0 && !categoriesPresent.has(item.id)}
                   />
                 </li>
               ))}
