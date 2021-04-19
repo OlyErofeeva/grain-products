@@ -1,18 +1,20 @@
+@import '../../../assets/main';
+
 .label {
   display: flex;
   align-items: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: rgba(0, 0, 0, 0.96);
+  color: $high-emphasys;
 
   &:hover {
     cursor: pointer;
   }
 
   &:hover > .checkboxVisible > .box {
-    fill: #E2F1FF;
-    stroke: #037bff;
+    fill: $primary-50;
+    stroke: $primary-600;
   }
 }
 
@@ -28,7 +30,7 @@
   clip: rect(0 0 0 0);
 
   &:focus + .checkboxVisible {
-    box-shadow: 0 0 0 2px #B9DBFF;
+    box-shadow: 0 0 0 2px $primary-100;
     border-radius: 2px;
   }
 }
@@ -39,11 +41,11 @@
 }
 
 .box {
-  fill: #fff;
-  stroke: #ddd;
+  fill: $surface-blank;
+  stroke: $low-emphasys;
   transition: fill, .15s ease-out;
 }
 
 .check_accent {
-  fill: #037bff;
+  fill: $primary-600;
 }

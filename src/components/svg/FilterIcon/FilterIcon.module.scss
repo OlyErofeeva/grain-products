@@ -1,7 +1,9 @@
+@import '../../../assets/main';
+
 .light {
-  fill: #fff;
+  fill: $surface-blank;
 }
 
 .accent {
-  fill: #037BFF;
+  fill: $primary-600;
 }

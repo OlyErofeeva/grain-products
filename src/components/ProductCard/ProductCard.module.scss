@@ -1,3 +1,5 @@
+@import '../../assets/main';
+
 .root {
   display: block;
   text-decoration: none;
@@ -9,7 +11,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #B9DBFF;
+    box-shadow: 0 0 0 2px $primary-100;
     border-radius: 2px;
   }
 }
@@ -20,8 +22,8 @@
   height: 145px;
   border-radius: 16px;
   overflow: hidden;
-  color: rgba(0, 0, 0, .96);
-  background-color: #fff;
+  color: $high-emphasys;
+  background-color: $surface-blank;
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.04);
 
   @media screen and (max-width: 414px) {
@@ -56,7 +58,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  color: #a8b8ca;
+  color: $secondary-200;
 }
 
 .title {
@@ -109,7 +111,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-  color: #f90;
+  color: $accent-notify;
 
   @media screen and (max-width: 414px) {
     margin-left: 0;
@@ -136,12 +138,12 @@
   text-align: center;
 
   &_new {
-    color: #20b02e;
-    background-color: #e6f5e6;
+    color: $accent-approving;
+    background-color: $background-approved;
   }
 
   &_limited {
-    color: #889bb1;
-    background-color: #e7eef9;
+    color: $secondary-300;
+    background-color: $secondary-50;
   }
 }

@@ -1,5 +1,7 @@
+@import '../../../assets/main';
+
 .root {
-  border: 1px solid #037bff;
+  border: 1px solid $primary-600;
   border-radius: 8px;
   padding: 4px 16px;
   font-weight: 500;
@@ -13,12 +15,12 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #B9DBFF;
+    box-shadow: 0 0 0 2px $primary-100;
   }
 
   &:disabled {
-    color: #037bff;
-    background-color: #fff;
+    color: $primary-600;
+    background-color: $surface-blank;
     opacity: 0.5;
   }
 
@@ -27,20 +29,20 @@
   }
 
   &_default {
-    color: #037bff;
-    background-color: #fff;
+    color: $primary-600;
+    background-color: $surface-blank;
 
     &:hover {
-      background-color: #E2F1FF;
+      background-color: $primary-50;
     }
   }
 
   &_selected {
-    color: #fff;
-    background-color: #037bff;
+    color: $surface-blank;
+    background-color: $primary-600;
 
     &:hover {
-      background-color: #008BFF;
+      background-color: $primary-500;
     }
   }
 }
