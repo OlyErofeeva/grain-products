@@ -1,4 +1,20 @@
 .root {
+  display: block;
+  text-decoration: none;
+  transition: transform .15s ease-out;
+
+  &:hover {
+    transform: translate(0, -3px);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #B9DBFF;
+    border-radius: 2px;
+  }
+}
+
+.content {
   display: flex;
   position: relative;
   height: 145px;
