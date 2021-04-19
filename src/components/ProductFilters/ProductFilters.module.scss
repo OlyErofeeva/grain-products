@@ -6,7 +6,7 @@
   padding: 22px 20px 24px;
   border-radius: 16px;
   background-color: $surface-blank;
-  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 16px 24px $shadow-100;
 
   @media screen and (max-width: $tablet-l) {
     width: 100%;

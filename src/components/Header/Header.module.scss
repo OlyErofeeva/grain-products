@@ -6,7 +6,7 @@
 
 .mainPanel {
   background-color: $surface-blank;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 1px 0px $shadow-200;
 }
 
 .content {
