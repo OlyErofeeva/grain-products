@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useProductList } from './components/ProductList/useProductList'
+import { useProductList } from './utils/useProductList'
 
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'

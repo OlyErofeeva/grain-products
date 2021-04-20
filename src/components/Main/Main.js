@@ -1,6 +1,6 @@
 import styles from './Main.module.scss'
 import { useMediaQuery } from 'react-responsive'
-import { useCategoryList } from '../ProductFilters/useCategoryList'
+import { useCategoryList } from '../../utils/useCategoryList'
 
 import Preloader from '../ui/Preloader/Preloader'
 import SearchResultMessage from '../ui/SearchResultMessage/SearchResultMessage'
