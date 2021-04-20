@@ -10,7 +10,10 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
   const handleFilterIsNewUpdate = () => updateFilter({ isNew: !filter.isNew })
 
   const handleFiltersCategoryReset = () => {
-    updateFilter({ category: [] })
+    // no need to call updateFilter if there's already an empty array of categories
+    if (filter.category.length !== 0) {
+      updateFilter({ category: [] })
+    }
   }
 
   const handleFiltersCategoryUpdate = categoryId => {
