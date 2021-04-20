@@ -10,10 +10,18 @@ const ProductCard = ({
   isNew,
   isLimited,
 }) => {
+  // render a placeholder if there's no imgSrc provided
+  const renderImage = () => {
+    if (imageSrc) {
+      return <img className={styles.image} src={imageSrc} alt={categoryName} />
+    }
+    return <div className={styles.imagePlaceholder}>No image available</div>
+  }
+
   return (
     <a className={styles.root} href="/" target="_self">
       <article className={styles.content}>
-        <img className={styles.image} src={imageSrc} alt={categoryName} />
+        {renderImage()}
         <div className={styles.infoContainer}>
           <p className={styles.category}>{categoryName}</p>
           <h3 className={styles.title}>{productName}</h3>
