@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './ProductSearch.module.scss'
+import { WORK } from '../../utils/requestStatuses'
 
 const ProductSearch = ({ filter, updateFilter, productsReqStatus }) => {
   const [value, setValue] = useState('')
@@ -25,7 +26,7 @@ const ProductSearch = ({ filter, updateFilter, productsReqStatus }) => {
         value={value}
         onChange={handleChange}
         onBlur={handleSubmit}
-        disabled={productsReqStatus === 'work'}
+        disabled={productsReqStatus === WORK}
       />
     </form>
   )

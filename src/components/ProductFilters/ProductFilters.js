@@ -1,4 +1,5 @@
 import styles from './ProductFilters.module.scss'
+import { SUCCESS } from '../../utils/requestStatuses'
 
 import FiltersIcon from '../svg/FilterIcon/FilterIcon'
 import CategoryOption from '../ui/CategoryOption/CategoryOption'
@@ -53,7 +54,7 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
       </div>
 
       <div className={styles.filtersWrapper}>
-        {categoryReqStatus === 'success' && (
+        {categoryReqStatus === SUCCESS && (
           <fieldset className={styles.filtersFieldset}>
             <legend className={styles.legend}>Category</legend>
             <ul className={styles.categoryList}>

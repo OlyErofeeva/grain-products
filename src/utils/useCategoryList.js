@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useReducer } from 'react'
+import { IDLE, WORK, SUCCESS, ERROR } from './requestStatuses'
 
 const initialState = {
-  status: 'idle', // idle | work | success | error
+  status: IDLE,
   items: [],
 }
 const reducer = (state, action) => {
@@ -10,20 +11,20 @@ const reducer = (state, action) => {
     case 'request:start': {
       return {
         ...state,
-        status: 'work',
+        status: WORK,
       }
     }
     case 'request:success': {
       return {
         ...state,
-        status: 'success',
+        status: SUCCESS,
         items: action.payload,
       }
     }
     case 'request:error': {
       return {
         ...state,
-        status: 'error',
+        status: ERROR,
       }
     }
   }

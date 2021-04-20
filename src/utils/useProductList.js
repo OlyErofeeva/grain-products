@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useReducer } from 'react'
 import * as uuid from 'uuid'
+import { IDLE, WORK, SUCCESS, ERROR } from './requestStatuses'
 
 const initialState = {
   /*
@@ -18,7 +19,7 @@ const initialState = {
     category: [],
     search: '',
   },
-  status: 'idle', // idle | work | success | error
+  status: IDLE,
   items: [],
   categoriesPresent: new Set(),
 }
@@ -31,7 +32,7 @@ const reducer = (state, action) => {
     case 'filter:change': {
       return {
         ...state,
-        status: 'work',
+        status: WORK,
         filter: {
           ...state.filter,
           ...action.payload,
@@ -41,7 +42,7 @@ const reducer = (state, action) => {
     case 'filter:reset': {
       return {
         ...state,
-        status: 'work',
+        status: WORK,
         filter: {
           ...initialState.filter,
         },
@@ -50,7 +51,7 @@ const reducer = (state, action) => {
     case 'request:start': {
       return {
         ...state,
-        status: 'work',
+        status: WORK,
         requestId: action.payload.currentRequestId,
       }
     }
@@ -58,7 +59,7 @@ const reducer = (state, action) => {
       if (action.payload.currentRequestId === state.requestId) {
         return {
           ...state,
-          status: 'success',
+          status: SUCCESS,
           items: action.payload.data.results,
           categoriesPresent: isFilterEmpty(state.filter)
             ? new Set(action.payload.data.results.map(item => item.categoryId))
@@ -71,7 +72,7 @@ const reducer = (state, action) => {
       if (action.payload.currentRequestId === state.requestId) {
         return {
           ...state,
-          status: 'error',
+          status: ERROR,
         }
       }
       return state

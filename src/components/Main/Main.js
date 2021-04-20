@@ -1,6 +1,7 @@
 import styles from './Main.module.scss'
 import { useMediaQuery } from 'react-responsive'
 import { useCategoryList } from '../../utils/useCategoryList'
+import { WORK, SUCCESS, ERROR } from '../../utils/requestStatuses'
 
 import Preloader from '../ui/Preloader/Preloader'
 import SearchResultMessage from '../ui/SearchResultMessage/SearchResultMessage'
@@ -13,10 +14,10 @@ const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqS
 
   const renderProductSearchResult = () => {
     switch (true) {
-      case productsReqStatus === 'work': {
+      case productsReqStatus === WORK: {
         return <Preloader />
       }
-      case productsReqStatus === 'error': {
+      case productsReqStatus === ERROR: {
         return (
           <SearchResultMessage
             title="Internal Server Error"
@@ -24,7 +25,7 @@ const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqS
           />
         )
       }
-      case productsReqStatus === 'success' && products.length === 0: {
+      case productsReqStatus === SUCCESS && products.length === 0: {
         return (
           <SearchResultMessage
             title="Nothing matched your search"
@@ -32,7 +33,7 @@ const Main = ({ isFiltersPanelOpen, products, filter, updateFilter, productsReqS
           />
         )
       }
-      case productsReqStatus === 'success' && products.length > 0: {
+      case productsReqStatus === SUCCESS && products.length > 0: {
         return <ProductList products={products} />
       }
       default: {

@@ -4,8 +4,6 @@ import { useProductList } from './utils/useProductList'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 
-// TODO: req statuses, api addresses -> constants
-
 function App() {
   const { items, categoriesPresent, status, filter, updateFilter } = useProductList()
   const [isFiltersPanelOpen, setIsFiltersPanelOpen] = useState(false)
