@@ -25,6 +25,26 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
     updateFilter({ category: selectedCategories })
   }
 
+  /* 
+    sorts an array of categories: 
+    disabled categories go to the end of the array,
+    so they will be displayed after all the others
+  */
+  const sortCategories = () => {
+    const categoriesAvailable = []
+    const categoriesDisabled = []
+
+    categoriesAll.forEach(item => {
+      if (categoriesPresent.has(item.id)) {
+        categoriesAvailable.push(item)
+      } else {
+        categoriesDisabled.push(item)
+      }
+    })
+
+    return categoriesAvailable.concat(categoriesDisabled)
+  }
+
   return (
     <section className={styles.root}>
       <div className={styles.titleWrapper}>
@@ -45,7 +65,7 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
                 />
               </li>
 
-              {categoriesAll.map(item => (
+              {sortCategories().map(item => (
                 <li className={styles.categoryItem} key={item.id}>
                   <CategoryOption
                     caption={item.name}
