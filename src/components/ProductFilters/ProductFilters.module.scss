@@ -1,0 +1,82 @@
+@import '../../assets/main';
+
+.root {
+  box-sizing: border-box;
+  width: 920px;
+  padding: 22px 20px 24px;
+  border-radius: 16px;
+  background-color: $surface-blank;
+  box-shadow: 0px 16px 24px $shadow-100;
+
+  @media screen and (max-width: $tablet-l) {
+    width: 100%;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin: 0 0 0 8px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: $primary-600;
+}
+
+.filtersWrapper {
+  display: flex;
+
+  @media screen and (max-width: $tablet-m) {
+    flex-direction: column;
+  }
+}
+
+.filtersFieldset {
+  display: flex;
+  border: none;
+  margin: 18px 0 0;
+  padding: 0;
+
+  &:not(:first-child) {
+    margin-left: 24px;
+  }
+
+  @media screen and (max-width: $tablet-m) {
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+  }
+}
+
+.legend {
+  margin-bottom: 16px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: $secondary-200;
+  text-transform: uppercase;
+}
+
+.categoryList {
+  margin: 0 0 -12px 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.categoryItem {
+  margin-bottom: 12px;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+}
+
+.statusCheckbox {
+  margin-right: 14px;
+}

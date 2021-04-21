@@ -1,0 +1,21 @@
+@import '../../../assets/main';
+
+.root {
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background-color: $primary-600;
+  transition: background-color .15s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-500;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $primary-700;
+  }
+}

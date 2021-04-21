@@ -1,0 +1,34 @@
+// Colors
+
+$surface-blank: #fff;
+
+$high-emphasys: rgba(0, 0, 0, .96);
+$low-emphasys: #ddd;
+
+$primary-700: #186aea;
+$primary-600: #037bff;
+$primary-500: #008bff;
+$primary-100: #b9dbff;
+$primary-50: #e2f1ff;
+
+$secondary-300: #889bb1;
+$secondary-200: #a8b8ca;
+$secondary-50: #e7eef9;
+
+$accent-notify: #f90;
+$accent-approving: #20b02e;
+
+$background-approved: #e6f5e6;
+
+$shadow-200: rgba(0, 0, 0, 0.08);
+$shadow-100: rgba(0, 0, 0, 0.04);
+
+
+// Breakpoints
+// NB! While changing these breakpoints, consider changing breakpoints.js too
+
+$mobile: 414px;
+$tablet-s: 800px;
+$tablet-m: 960px;
+$tablet-l: 1024px;
+$laptop: 1280px;

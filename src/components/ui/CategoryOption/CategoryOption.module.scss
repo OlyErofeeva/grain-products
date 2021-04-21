@@ -1,0 +1,48 @@
+@import '../../../assets/main';
+
+.root {
+  border: 1px solid $primary-600;
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  transition: background-color .15s ease-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $primary-100;
+  }
+
+  &:disabled {
+    color: $primary-600;
+    background-color: $surface-blank;
+    opacity: 0.5;
+  }
+
+  &:disabled:hover {
+    cursor: not-allowed;
+  }
+
+  &_default {
+    color: $primary-600;
+    background-color: $surface-blank;
+
+    &:hover {
+      background-color: $primary-50;
+    }
+  }
+
+  &_selected {
+    color: $surface-blank;
+    background-color: $primary-600;
+
+    &:hover {
+      background-color: $primary-500;
+    }
+  }
+}

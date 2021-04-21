@@ -1,0 +1,43 @@
+@import '../../assets/main';
+
+.root {
+  width: 100%;
+}
+
+.mainPanel {
+  background-color: $surface-blank;
+  box-shadow: 0px 1px 0px $shadow-200;
+}
+
+.content {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: $mobile) {
+    padding: 16px;
+  }
+}
+
+.title {
+  margin: 0 24px 0 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: $high-emphasys;
+}
+
+.additionalPanel {
+  margin-top: 16px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filtersButton {
+  margin-left: 8px;
+}

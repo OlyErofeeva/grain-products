@@ -1,0 +1,38 @@
+@import '../../assets/main';
+
+.root {
+  width: 100%;
+  max-width: 330px;
+}
+
+.searchInput {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid $low-emphasys;
+  border-radius: 8px;
+  padding: 8px 10px 8px 44px;
+  background-image: url(../../images/icons/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 8px;
+  font-weight: 500;
+  font-size: 16px; // prevents iOS from zooming when in focus
+  line-height: 22px;
+  color: $high-emphasys;
+  caret-color: $primary-600;
+  transition: border-color .15s ease-out, background-color .15s ease-out;
+
+  &::placeholder {
+    font-size: 14px;
+    color: $secondary-200;
+  }
+
+  &:hover {
+    border-color: $secondary-200;
+    background-color: $primary-50;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-600;
+  }
+}

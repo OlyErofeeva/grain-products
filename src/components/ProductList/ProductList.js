@@ -1,30 +1,25 @@
 import styles from './ProductList.module.scss'
-import { useProductList } from './useProductList'
+import ProductCard from '../ProductCard/ProductCard'
+import categoryImageMap from '../../utils/categoryImageMap'
 
-const ProductList = () => {
-  const { items, filter, status, updateFilter } = useProductList()
-
-  const handleFilterIsNewUpdate = () => updateFilter({ isNew: !filter.isNew })
-
+const ProductList = ({ products }) => {
   return (
-    <div className={styles.root}>
-      <div className={styles.filtersContainer}>
-        <div>Filters placeholder</div>
-        <div>
-          <label htmlFor="is_new">Is new</label>
-          <input id="is_new" type="checkbox" onChange={handleFilterIsNewUpdate} checked={filter.isNew} />
-        </div>
-      </div>
-      <div>Status: {status}</div>
-      <div className={styles.itemsContainer}>
-        {items.map(item => (
-          <div className={styles.productContainer} key={item.id}>
-            <span className={styles.productName}>{item.name}</span>
-            <span>{item.description}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+    <ul className={styles.root}>
+      {products.map(item => (
+        <li key={item.id}>
+          <ProductCard
+            imageSrc={categoryImageMap.get(item.categoryType)}
+            categoryName={item.categoryName}
+            productName={item.name}
+            productDescription={item.description}
+            price={item.price}
+            discount={item.discount}
+            isNew={item.isNew}
+            isLimited={item.isLimited}
+          />
+        </li>
+      ))}
+    </ul>
   )
 }
 

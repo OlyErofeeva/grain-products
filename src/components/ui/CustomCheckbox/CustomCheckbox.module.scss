@@ -1,0 +1,51 @@
+@import '../../../assets/main';
+
+.label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: $high-emphasys;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover > .checkboxVisible > .box {
+    fill: $primary-50;
+    stroke: $primary-600;
+  }
+}
+
+.checkboxHidden {
+  /* unfortunately, 'appearance: none' still doesn't work properly on iOS devices,
+  so here's an old way to hide original checkboxes: */
+
+  position: absolute;
+  margin: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  &:focus + .checkboxVisible {
+    box-shadow: 0 0 0 2px $primary-100;
+    border-radius: 2px;
+  }
+}
+
+.checkboxVisible {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.box {
+  fill: $surface-blank;
+  stroke: $low-emphasys;
+  transition: fill, .15s ease-out;
+}
+
+.check_accent {
+  fill: $primary-600;
+}
