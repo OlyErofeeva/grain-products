@@ -1,12 +1,9 @@
 import styles from './Header.module.scss'
-import { useMediaQuery } from 'react-responsive'
 
 import ProductSearch from '../ProductSearch/ProductSearch'
 import FilterButton from '../ui/FilterButton/FilterButton'
 
-const Header = ({ onFilterButtonClick, filter, updateFilter, productsReqStatus }) => {
-  const isMobile = useMediaQuery({ query: 'screen and (max-width: 414px)' })
-
+const Header = ({ onFilterButtonClick, filter, updateFilter, productsReqStatus, isMobile }) => {
   return (
     <header className={styles.root}>
       <div className={styles.mainPanel}>

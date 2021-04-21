@@ -75,7 +75,6 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
                     caption={item.name}
                     isSelected={filter.category.includes(item.id)}
                     onClick={() => handleFiltersCategoryUpdate(item.id)}
-                    categoryId={item.id}
                     isDisabled={categoriesPresent.size > 0 && !categoriesPresent.has(item.id)}
                   />
                 </li>
