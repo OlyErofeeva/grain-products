@@ -2,7 +2,14 @@ import styles from './CustomCheckbox.module.scss'
 import { useState } from 'react'
 import * as uuid from 'uuid'
 
-const CustomCheckbox = ({ labelText = '', classNameExt = '', isChecked, onChange }) => {
+type CustomCheckboxProps = {
+  labelText: string
+  classNameExt?: string
+  isChecked: boolean
+  onChange(): void
+}
+
+const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ labelText, classNameExt = '', isChecked, onChange }) => {
   const [checkboxId] = useState(uuid.v4())
 
   return (
