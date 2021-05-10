@@ -1,6 +1,10 @@
 import styles from './FilterIcon.module.scss'
 
-const FilterIcon = ({ isLight }) => {
+type FilterIconProps = {
+  isLight?: boolean
+}
+
+const FilterIcon: React.FC<FilterIconProps> = ({ isLight }) => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path
