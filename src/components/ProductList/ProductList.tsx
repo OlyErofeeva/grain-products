@@ -1,8 +1,13 @@
 import styles from './ProductList.module.scss'
 import ProductCard from '../ProductCard/ProductCard'
 import categoryImageMap from '../../utils/categoryImageMap'
+import { Product } from '../../types/api'
 
-const ProductList = ({ products }) => {
+type ProductListProps = {
+  products: Product[]
+}
+
+const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
     <ul className={styles.root}>
       {products.map(item => (

@@ -1,13 +1,24 @@
 import styles from './Main.module.scss'
 import { useCategoryList } from '../../utils/useCategoryList'
-import { WORK, SUCCESS, ERROR } from '../../utils/requestStatuses'
+import { Filter, FilterChange, Product } from '../../types/api'
+import RequestStatus from '../../utils/requestStatuses'
 
 import Preloader from '../ui/Preloader/Preloader'
 import SearchResultMessage from '../ui/SearchResultMessage/SearchResultMessage'
 import ProductFilters from '../ProductFilters/ProductFilters'
 import ProductList from '../ProductList/ProductList'
 
-const Main = ({
+type MainProps = {
+  isFiltersPanelOpen: boolean
+  products: Product[]
+  filter: Filter
+  updateFilter: (filter?: FilterChange) => void
+  productsReqStatus: RequestStatus
+  categoriesPresent: Set<string>
+  isMobile: boolean
+}
+
+const Main: React.FC<MainProps> = ({
   isFiltersPanelOpen,
   products,
   filter,
@@ -20,10 +31,10 @@ const Main = ({
 
   const renderProductSearchResult = () => {
     switch (true) {
-      case productsReqStatus === WORK: {
+      case productsReqStatus === RequestStatus.WORK: {
         return <Preloader />
       }
-      case productsReqStatus === ERROR: {
+      case productsReqStatus === RequestStatus.ERROR: {
         return (
           <SearchResultMessage
             title="Internal Server Error"
@@ -31,7 +42,7 @@ const Main = ({
           />
         )
       }
-      case productsReqStatus === SUCCESS && products.length === 0: {
+      case productsReqStatus === RequestStatus.SUCCESS && products.length === 0: {
         return (
           <SearchResultMessage
             title="Nothing matched your search"
@@ -39,7 +50,7 @@ const Main = ({
           />
         )
       }
-      case productsReqStatus === SUCCESS && products.length > 0: {
+      case productsReqStatus === RequestStatus.SUCCESS && products.length > 0: {
         return <ProductList products={products} />
       }
       default: {

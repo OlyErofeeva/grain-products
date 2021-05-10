@@ -3,8 +3,8 @@ import styles from './CategoryOption.module.scss'
 
 type CategoryOptionProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   caption: string
-  isSelected: boolean
-  isDisabled: boolean
+  isSelected?: boolean
+  isDisabled?: boolean
 }
 
 const CategoryOption: React.FC<CategoryOptionProps> = ({ caption, isSelected, isDisabled, onClick }) => {

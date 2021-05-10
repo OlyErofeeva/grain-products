@@ -6,7 +6,7 @@ type CustomCheckboxProps = {
   labelText: string
   classNameExt?: string
   isChecked: boolean
-  onChange(): void
+  onChange: () => void
 }
 
 const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ labelText, classNameExt = '', isChecked, onChange }) => {

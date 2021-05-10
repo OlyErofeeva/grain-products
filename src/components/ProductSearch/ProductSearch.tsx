@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import styles from './ProductSearch.module.scss'
-import { WORK } from '../../utils/requestStatuses'
+import { Filter, FilterChange } from '../../types/api'
+import RequestStatus from '../../utils/requestStatuses'
 
-const ProductSearch = ({ filter, updateFilter, productsReqStatus }) => {
+type ProductSearchProps = {
+  filter: Filter
+  updateFilter: (filter?: FilterChange) => void
+  productsReqStatus: RequestStatus
+}
+
+const ProductSearch: React.FC<ProductSearchProps> = ({ filter, updateFilter, productsReqStatus }) => {
   const [value, setValue] = useState('')
 
-  const handleChange = evt => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setValue(evt.target.value)
   }
 
-  const handleSubmit = evt => {
+  const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault()
     if (value !== filter.search) {
       updateFilter({ search: value })
@@ -26,7 +33,7 @@ const ProductSearch = ({ filter, updateFilter, productsReqStatus }) => {
         value={value}
         onChange={handleChange}
         onBlur={handleSubmit}
-        disabled={productsReqStatus === WORK}
+        disabled={productsReqStatus === RequestStatus.WORK}
       />
     </form>
   )
