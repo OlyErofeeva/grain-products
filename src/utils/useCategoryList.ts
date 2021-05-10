@@ -1,5 +1,6 @@
 import { Reducer, useCallback, useEffect, useReducer } from 'react'
 import RequestStatus from './requestStatuses'
+import { Category } from '../types/api'
 
 enum ActionType {
   REQUEST_START,
@@ -15,12 +16,6 @@ type Action = {
 type State = {
   status: RequestStatus
   items: Category[]
-}
-
-type Category = {
-  id: string
-  name: string
-  type: string
 }
 
 const initialState = {

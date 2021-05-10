@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useReducer, Reducer } from 'react'
 import * as uuid from 'uuid'
 import RequestStatus from './requestStatuses'
+import { Filter, FilterChange, Product } from '../types/api'
 
 enum ActionType {
   FILTER_CHANGE,
@@ -11,18 +12,11 @@ enum ActionType {
 }
 
 type Action =
-  | { type: ActionType.FILTER_CHANGE; payload: Filter }
+  | { type: ActionType.FILTER_CHANGE; payload: FilterChange }
   | { type: ActionType.FILTER_RESET }
   | { type: ActionType.REQUEST_START; payload: { currentRequestId: string } }
   | { type: ActionType.REQUEST_SUCCESS; payload: { currentRequestId: string; data: ProductListResponse } }
   | { type: ActionType.REQUEST_ERROR; payload: { currentRequestId: string } }
-
-type Filter = {
-  isNew: boolean
-  isLimited: boolean
-  category: string[]
-  search: string
-}
 
 type State = {
   requestId: string
@@ -30,19 +24,6 @@ type State = {
   status: RequestStatus
   items: Product[]
   categoriesPresent: Set<string>
-}
-
-type Product = {
-  id: string
-  name: string
-  description: string
-  categoryId: string
-  categoryName: string
-  categoryType: string
-  isLimited: boolean
-  isNew: boolean
-  price: number
-  discount: number
 }
 
 type ProductListResponse = {
@@ -140,7 +121,10 @@ const reducer: Reducer<State, Action> = (state, action) => {
 export const useProductList = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const updateFilter = useCallback((filter = {}) => dispatch({ type: ActionType.FILTER_CHANGE, payload: filter }), [])
+  const updateFilter = useCallback(
+    (filter: FilterChange = {}) => dispatch({ type: ActionType.FILTER_CHANGE, payload: filter }),
+    []
+  )
 
   const resetFilter = useCallback(() => dispatch({ type: ActionType.FILTER_RESET }), [])
 
