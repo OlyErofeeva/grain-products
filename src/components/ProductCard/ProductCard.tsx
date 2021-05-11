@@ -1,10 +1,21 @@
 import styles from './ProductCard.module.scss'
 
-const ProductCard = ({
+type ProductCardProps = {
+  imageSrc?: string
+  categoryName: string
+  productName: string
+  productDescription: string
+  price: number
+  discount: number | null
+  isNew: boolean
+  isLimited: boolean
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({
   imageSrc,
-  categoryName = '',
-  productName = '',
-  productDescription = '',
+  categoryName,
+  productName,
+  productDescription,
   price,
   discount,
   isNew,

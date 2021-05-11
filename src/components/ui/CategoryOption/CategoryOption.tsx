@@ -1,6 +1,13 @@
+import { ButtonHTMLAttributes } from 'react'
 import styles from './CategoryOption.module.scss'
 
-const CategoryOption = ({ caption, isSelected, isDisabled, onClick }) => {
+type CategoryOptionProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  caption: string
+  isSelected?: boolean
+  isDisabled?: boolean
+}
+
+const CategoryOption: React.FC<CategoryOptionProps> = ({ caption, isSelected, isDisabled, onClick }) => {
   return (
     <button
       className={`${styles.root} ${isSelected ? styles.root_selected : styles.root_default}`}

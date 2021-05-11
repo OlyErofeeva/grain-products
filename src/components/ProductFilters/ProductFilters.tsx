@@ -1,11 +1,26 @@
 import styles from './ProductFilters.module.scss'
-import { SUCCESS } from '../../utils/requestStatuses'
+import RequestStatus from '../../utils/requestStatuses'
+import { Filter, FilterChange, Category } from '../../types/api'
 
 import FiltersIcon from '../svg/FilterIcon/FilterIcon'
 import CategoryOption from '../ui/CategoryOption/CategoryOption'
 import CustomCheckbox from '../ui/CustomCheckbox/CustomCheckbox'
 
-const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll, categoryReqStatus }) => {
+type ProductFiltersProps = {
+  filter: Filter
+  updateFilter: (filter?: FilterChange) => void
+  categoriesPresent: Set<string>
+  categoriesAll: Category[]
+  categoryReqStatus: RequestStatus
+}
+
+const ProductFilters: React.FC<ProductFiltersProps> = ({
+  filter,
+  updateFilter,
+  categoriesPresent,
+  categoriesAll,
+  categoryReqStatus,
+}) => {
   const handleFilterIsLimitedUpdate = () => updateFilter({ isLimited: !filter.isLimited })
   const handleFilterIsNewUpdate = () => updateFilter({ isNew: !filter.isNew })
 
@@ -16,7 +31,7 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
     }
   }
 
-  const handleFiltersCategoryUpdate = categoryId => {
+  const handleFiltersCategoryUpdate = (categoryId: string) => {
     const selectedCategories = [...filter.category]
     const categoryIndex = selectedCategories.indexOf(categoryId)
 
@@ -35,8 +50,8 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
     so they will be displayed after all the others
   */
   const sortCategories = () => {
-    const categoriesAvailable = []
-    const categoriesDisabled = []
+    const categoriesAvailable: Category[] = []
+    const categoriesDisabled: Category[] = []
 
     categoriesAll.forEach(item => {
       if (categoriesPresent.has(item.id)) {
@@ -57,7 +72,7 @@ const ProductFilters = ({ filter, updateFilter, categoriesPresent, categoriesAll
       </div>
 
       <div className={styles.filtersWrapper}>
-        {categoryReqStatus === SUCCESS && (
+        {categoryReqStatus === RequestStatus.SUCCESS && (
           <fieldset className={styles.filtersFieldset}>
             <legend className={styles.legend}>Category</legend>
             <ul className={styles.categoryList}>

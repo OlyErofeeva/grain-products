@@ -1,9 +1,19 @@
 import styles from './Header.module.scss'
+import { Filter, FilterChange } from '../../types/api'
+import RequestStatus from '../../utils/requestStatuses'
 
 import ProductSearch from '../ProductSearch/ProductSearch'
 import FilterButton from '../ui/FilterButton/FilterButton'
 
-const Header = ({ onFilterButtonClick, filter, updateFilter, productsReqStatus, isMobile }) => {
+type HeaderProps = {
+  onFilterButtonClick: () => void
+  filter: Filter
+  updateFilter: (filter?: FilterChange) => void
+  productsReqStatus: RequestStatus
+  isMobile: boolean
+}
+
+const Header: React.FC<HeaderProps> = ({ onFilterButtonClick, filter, updateFilter, productsReqStatus, isMobile }) => {
   return (
     <header className={styles.root}>
       <div className={styles.mainPanel}>

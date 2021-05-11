@@ -1,6 +1,11 @@
 import styles from './SearchResultMessage.module.scss'
 
-const SearchResultMessage = ({ title = '', description = '' }) => {
+type SearchResultMessageProps = {
+  title: string
+  description?: string
+}
+
+const SearchResultMessage: React.FC<SearchResultMessageProps> = ({ title, description = '' }) => {
   return (
     <div className={styles.root}>
       {title && <p className={styles.title}>{title}</p>}
